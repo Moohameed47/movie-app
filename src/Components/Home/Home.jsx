@@ -1,5 +1,6 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import Media from "../Media/Media";
 
 export default function Home() {
   const API = "https://api.themoviedb.org/3/trending/movie/day";
@@ -12,7 +13,7 @@ export default function Home() {
       `https://api.themoviedb.org/3/trending/${type}/day?api_key=8494c70d32335f06e505959598e8ff8c`
     );
     // CallBackFunction \\
-    setdata(await data);
+    setdata(await data.results);
   }
 
   useEffect(() => {
@@ -23,9 +24,11 @@ export default function Home() {
 
   return (
     <>
-      <div>{movies.total_results}</div>
-      <div>{tv.total_results}</div>
-      <div>{people.total_results}</div>
+      <div className="container my-4">
+        <div className="row">
+          {movies.length > 0 ? movies.map((el) => <Media data={el} />) : ""}
+        </div>
+      </div>
     </>
   );
 }
