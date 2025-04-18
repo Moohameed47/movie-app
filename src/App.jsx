@@ -9,13 +9,22 @@ import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Error_404 from "./Components/Error_404/Error_404";
 import MediaDetails from "./Components/MediaDetails/MediaDetails";
+import Day from "./Components/Day/Day";
+import Week from "./Components/Week/Week";
 export default function App() {
   const routes = createBrowserRouter([
     {
       path: "",
       element: <Layout />,
       children: [
-        { index: true, element: <Home /> },
+        {
+          path: "/",
+          element: <Home />,
+          children: [
+            { path: "day", element: <Day /> },
+            { path: "week", element: <Week /> },
+          ],
+        },
         // STORE MANAGEMENT
         { path: "movie", element: <Movie /> },
         { path: "tv", element: <Tv /> },

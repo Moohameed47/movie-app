@@ -1,7 +1,7 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import Media from "../Media/Media";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Home() {
   const API = "https://api.themoviedb.org/3/trending/movie/day";
@@ -41,6 +41,16 @@ export default function Home() {
 
             <div className="brdr w-75"></div>
             <p className="h5 fw-light mt-3">Most watched movies to watch now</p>
+            <Link className="h5 fw-light mt-3" to={"day"}>
+              DAY
+            </Link>
+            <br />
+            <Link className="h5 fw-light mt-3" to={"week"}>
+              WEEK
+            </Link>
+            <br />
+            <br />
+            <Outlet></Outlet>
           </div>
           <div className="col-md-9">
             <div className="row">
