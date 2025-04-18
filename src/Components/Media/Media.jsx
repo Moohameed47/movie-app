@@ -1,10 +1,10 @@
 import React from "react";
 import Style from "./Media.module.css";
 export default function Media(props) {
-  const { data } = props;
+  const { data, wdth } = props;
   return (
     <>
-      <div className="col-md-3 p-2 position-relative">
+      <div className={wdth + " p-2 position-relative"}>
         <div className="">
           {data.poster_path ? (
             <img

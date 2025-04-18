@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   const API = "https://api.themoviedb.org/3/trending/movie/day";
   const API_KEY = "8494c70d32335f06e505959598e8ff8c";
+  // STORE MANAGEMENT ===> REDUXJS
   const [movies, setmovies] = useState([]);
   const [tv, settv] = useState([]);
   const [people, setpeople] = useState([]);
@@ -44,7 +45,9 @@ export default function Home() {
           <div className="col-md-9">
             <div className="row">
               {movies.length > 0
-                ? movies.slice(0, 4).map((el) => <Media data={el} />)
+                ? movies
+                    .slice(0, 4)
+                    .map((el) => <Media data={el} wdth="col-md-3" />)
                 : ""}
             </div>
           </div>
@@ -65,7 +68,9 @@ export default function Home() {
           <div className="col-md-9">
             <div className="row">
               {tv.length > 0
-                ? tv.slice(0, 4).map((el) => <Media data={el} />)
+                ? tv
+                    .slice(0, 4)
+                    .map((el) => <Media data={el} wdth="col-md-3" />)
                 : ""}
             </div>
           </div>
@@ -86,7 +91,9 @@ export default function Home() {
           <div className="col-md-9">
             <div className="row">
               {people.length > 0
-                ? people.slice(0, 4).map((el) => <Media data={el} />)
+                ? people
+                    .slice(0, 4)
+                    .map((el) => <Media data={el} wdth="col-md-3" />)
                 : ""}
             </div>
           </div>

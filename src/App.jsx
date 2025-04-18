@@ -15,6 +15,7 @@ export default function App() {
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
+        // STORE MANAGEMENT
         { path: "movie", element: <Movie /> },
         { path: "tv", element: <Tv /> },
         { path: "people", element: <People /> },
