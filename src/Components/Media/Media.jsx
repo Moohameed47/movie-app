@@ -1,9 +1,36 @@
 import React from "react";
-
-export default function Media() {
+import Style from "./Media.module.css";
+export default function Media(props) {
+  const { data } = props;
   return (
     <>
-      <div className="col-md-2">TEST</div>
+      <div className="col-md-3 p-2 position-relative">
+        <div className="">
+          {data.poster_path ? (
+            <img
+              src={"https://image.tmdb.org/t/p/w500/" + data.poster_path}
+              alt=""
+            />
+          ) : (
+            <img
+              src={"https://image.tmdb.org/t/p/w500/" + data.profile_path}
+              alt=""
+            />
+          )}
+        </div>
+        <h6 className="my-2">
+          {data.title
+            ? data.title.length > 17
+              ? data.title.slice(0, 22) + "..."
+              : data.title
+            : data.name.length > 17
+            ? data.name.slice(0, 22) + "..."
+            : data.name}
+        </h6>
+        {data.vote_average && (
+          <h6 className={Style.vote}>{data.vote_average.toFixed(2)}</h6>
+        )}
+      </div>
     </>
   );
 }
