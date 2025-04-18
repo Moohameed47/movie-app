@@ -8,6 +8,7 @@ import People from "./Components/People/People";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Error_404 from "./Components/Error_404/Error_404";
+import MediaDetails from "./Components/MediaDetails/MediaDetails";
 export default function App() {
   const routes = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ export default function App() {
         { path: "people", element: <People /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
+        { path: "mediaDetails/:media_type/:id", element: <MediaDetails /> },
         { path: "*", element: <Error_404 /> },
       ],
     },
